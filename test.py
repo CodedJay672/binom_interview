@@ -12,12 +12,12 @@ distribution = {
   "CREAM": 1,
   "BLEW": 1
 }
-values = list(distribution.values())
+values = sorted(list(distribution.values()))
 
 def mean_color():
   """return the mean color"""
-  mean = sum(values) / len(distribution) #the mean of the distribution
-  print(mean)
+  mean = round(sum(values) / len(distribution)) #the mean of the distribution
+  print('mean shirt is at', mean)
 
 # to find the mode that is colour with the maximum frequency
 def mode_val():
@@ -25,12 +25,12 @@ def mode_val():
     if distribution.get(k) == max(values):
       mode = k
       break
-  print(mode)
+  print("Mostly worn shirt is", mode)
 
 # probability of choosing a red shirt at random
 def prob():
-  prob = sum(values)/distribution.get('RED')
-  print(prob)
+  prob = distribution.get('RED')/sum(values)
+  print("probability of picking a RED shirt is", prob)
 
 mean_color()
 mode_val()
